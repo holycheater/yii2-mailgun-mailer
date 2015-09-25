@@ -193,7 +193,8 @@ class Message extends BaseMessage
 	 */
 	public function attach($fileName, array $options = [])
 	{
-		$this->getMessageBuilder()->addAttachment($fileName);
+		$name = isset($options['fileName']) ? $options['fileName'] : null;
+		$this->getMessageBuilder()->addAttachment($fileName, $name);
 		return $this;
 	}
 
